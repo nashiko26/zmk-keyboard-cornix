@@ -13,8 +13,11 @@
 #
 ---
 include:
+  # dongle_display(画面widget)は上流zmk-dongle-displayがZMK本体のAPI改名に未追従で
+  # リンクエラーになるため一旦除外。画面なしのdongleとしてビルドする。
+  # 上流がzephyr4対応したら "dongle_display" を末尾に戻す。
   - board: nice_nano/nrf52840/zmk
-    shield: cornix_dongle_adapter cornix_dongle_eyelash dongle_display
+    shield: cornix_dongle_adapter cornix_dongle_eyelash
     snippet: studio-rpc-usb-uart nrf52840-nosd
     artifact-name: cornix_dongle_nosd
   # dongle screen not yet supports zephyr4
